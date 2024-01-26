@@ -1,7 +1,7 @@
 sources:
   - name: mart_jaffle_shop
-    database: POC_IL_SM
-    schema: DAT_CLOUD_PROD
+    database: "{{ target.database }}"
+    schema: "{{ target.schema }}"
     tables:
       - name: customers
         columns:
