@@ -1,0 +1,13 @@
+sources:
+  - name: mart_jaffle_shop
+    tables:
+      - name: customers
+        columns:
+          - name: customer_id
+      - name: orders
+        columns:
+          - name: customer_id
+            tests:
+              - relationships:
+                  to: source('mart_jaffle_shop', 'customers')
+                  field: customer_id
