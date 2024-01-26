@@ -1,0 +1,11 @@
+exposures:
+  - name: customer_orders
+    description: customer orders
+    type: analysis
+    owner:
+      name: dat
+      email: dat@email.com
+    
+    depends_on:
+      - ref('customers')
+      - ref('orders')
