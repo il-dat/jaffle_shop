@@ -1,5 +1,6 @@
-{% macro get_all_tags(resource_types=["model", "snapshot", "source"], debug=False) %}
+{% macro get_all_tags(debug=False) %}
 
+  {% set resource_types = var('dbt_tags__resource_types') %}
   {% set found_tags = [] %}
 
   {% for relation in graph.nodes.values() if (relation.resource_type | lower) in resource_types %}

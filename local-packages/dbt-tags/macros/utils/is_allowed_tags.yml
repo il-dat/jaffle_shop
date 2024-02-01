@@ -1,0 +1,15 @@
+macros:
+  - name: is_allowed_tags
+    description: |
+      Check if dbt tag is allowed, configured by `dbt_tags__allowed_tags` variable.
+
+      **Usage**:
+      ```sql
+      {% raw %}
+      {% set is_allowed = dbt_tags.is_allowed_tags(tag_key=<your_value>) %}
+      {% endraw %}
+      ```
+    arguments:
+      - name: tag_key
+        type: string
+        description: dbt tag name

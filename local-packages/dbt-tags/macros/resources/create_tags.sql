@@ -6,8 +6,10 @@
 
   {% set query -%}
   
-    create schema if not exists {{ ns }};
     {% for item in dbt_tags -%}
+      {% if loop.first %}
+        create schema if not exists {{ ns }};
+      {%- endif %}
       create tag if not exists {{ ns }}.{{ item.tag }}
         with comment = '{{ target.name | upper }} - {{ project_name }}''s dbt managed tags | context: {{ item | tojson }}';
     {% endfor %}

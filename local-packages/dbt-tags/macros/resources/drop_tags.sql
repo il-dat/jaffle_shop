@@ -2,7 +2,6 @@
 
   {# Run on release: dbt run-operation drop_tags --args '{debug: True}' #}
   {% set ns = dbt_tags.get_tags_ns() %}
-
   {% set query_adapter_tags_in_ns %}
   
     show tags in schema {{ ns }};

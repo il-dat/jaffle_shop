@@ -1,6 +1,6 @@
 name: 'dbt_tags'
 vars:
-  # dbt_tags__database: common_db # target.database if not specified
-  # dbt_tags__schema: common_schema # target.schema if not specified
-  # dbt_tags__allowed_tags: [] # allow all
-  # dbt_tags__unapply_tags: False # Enable to perform 'unapply' instead of 'apply'
+  # dbt_tags__database: common  # optional, target.database if not specified
+  # dbt_tags__schema: tags      # optional, target.schema if not specified
+  dbt_tags__resource_types: ["model", "snapshot", "source"] # mandatory, find tags for only configured dbt resource types 
+  # dbt_tags__allowed_tags: []  # optional, allow all

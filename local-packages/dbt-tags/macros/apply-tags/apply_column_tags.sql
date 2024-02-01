@@ -4,18 +4,7 @@
     {{ return("") }}
   {% endif %}
 
-  {# Use in hook:
-
-    models:
-      jaffle_shop:
-        post-hook:
-          - >
-            {% if flags.WHICH in ('run', 'build') %}
-              {{ dbt_tags.apply_column_tags() }}
-            {% endif %}
-  #}
   {% set tag_ns = dbt_tags.get_tags_ns() %}
-
   {% set query %}
 
     {% for key, value in model.columns.items() -%}
