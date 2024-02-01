@@ -99,7 +99,7 @@ dbt run -s customers orders
 03:17:26  dbt_tags.apply_column_tags - Set tag [common.tags.pii_name] on column [demo.DAT.customers:first_name]
 03:17:27  1 of 2 OK created sql table model DAT.customers ................................ [SUCCESS 1 in 3.50s]
 03:17:27  2 of 2 START sql table model DAT.orders ........................................ [RUN]
-03:17:29  dbt_tags.apply_column_tags - Set tag [demo.tags.pii_amount] on column [demo.DAT.orders:amount]
+03:17:29  dbt_tags.apply_column_tags - Set tag [common.tags.pii_amount] on column [demo.DAT.orders:amount]
 03:17:30  2 of 2 OK created sql table model DAT.orders ................................... [SUCCESS 1 in 2.67s]
 03:17:30  
 03:17:30  Finished running 2 table models in 0 hours 0 minutes and 9.81 seconds (9.81s).
