@@ -11,7 +11,7 @@ Tag-based masking policies management in Snowflake ❄️
 
 ### 1. Persist dbt tags as Snowflake object's tags
 
-All dbt tags are allowed by default. Let's define your list of tags with below example:
+All dbt tags are allowed by default. If needed, let's define your list of tags with the below example:
 
 - In `customers.yml`:
 
@@ -47,6 +47,7 @@ dbt run-opertion create_tags
 
 <details>
   <summary>Sample logs</summary>
+
 ```log
 03:17:12  Running with dbt=1.7.6
 03:17:12  Registered adapter: snowflake=1.7.1
@@ -60,6 +61,7 @@ create tag if not exists poc_il_sm.DAT_DAT.pii_amount
 03:17:12  [RUN]: dbt_tags.create_tags
 03:17:14  Completed
 ```
+
 </details>
 
 ### 2. Create masking policy functions & Apply to tags
@@ -82,7 +84,11 @@ models:
 
 <details>
   <summary>Sample logs</summary>
-```logdbt run -s customers orders  
+```bash
+dbt run -s customers orders
+```
+
+```log
 03:17:20  Running with dbt=1.7.6
 03:17:20  Registered adapter: snowflake=1.7.1
 03:17:20  Found 5 models, 3 seeds, 21 tests, 2 sources, 1 exposure, 0 metrics, 552 macros, 0 groups, 0 semantic models
@@ -102,6 +108,7 @@ models:
 03:17:30  
 03:17:30  Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
 ```
+
 </details>
 
 ## TODO
