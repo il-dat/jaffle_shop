@@ -53,10 +53,10 @@ dbt run-opertion create_tags
 03:17:12  Registered adapter: snowflake=1.7.1
 03:17:12  Found 5 models, 3 seeds, 21 tests, 2 sources, 1 exposure, 0 metrics, 552 macros, 0 groups, 0 semantic models
 03:17:12  query:
-create schema if not exists poc_il_sm.DAT_DAT;
-create tag if not exists poc_il_sm.DAT_DAT.pii_name
+create schema if not exists common.tags;
+create tag if not exists common.tags.pii_name
   with comment = 'PROD - jaffle_shop''s dbt managed tags | context: {"level": "model.customers.column", "name": "first_name", "tag": "pii_name"}';
-create tag if not exists poc_il_sm.DAT_DAT.pii_amount
+create tag if not exists common.tags.pii_amount
   with comment = 'PROD - jaffle_shop''s dbt managed tags | context: {"level": "model.orders.column", "name": "amount", "tag": "pii_amount"}';
 03:17:12  [RUN]: dbt_tags.create_tags
 03:17:14  Completed
