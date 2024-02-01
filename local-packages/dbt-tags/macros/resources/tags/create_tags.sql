@@ -1,8 +1,7 @@
 {% macro create_tags(debug=False) %}
 
-  {# Run on release: dbt run-operation create_tags --args '{debug: True}' #}
-  {% set ns = dbt_tags.get_tags_ns() %}
-  {% set dbt_tags = dbt_tags.get_all_tags(debug=debug) %}
+  {% set ns = dbt_tags.get_resource_ns() %}
+  {% set dbt_tags = dbt_tags.get_dbt_tags(debug=debug) %}
 
   {% set query -%}
   

@@ -1,5 +1,5 @@
 macros:
-  - name: get_all_tags
+  - name: get_dbt_tags
     description: |
       Loops through `graph` variable to find all (allowed) dbt tags at the model level as well as the column one.
       Note: Allowed dbt tags are controlled by the `dbt_tags__allowed_tags` variable, [] by default which means all allowed
@@ -7,7 +7,7 @@ macros:
       **Usage**:
       ```sql
       {% raw %}
-      {% set tags = dbt_tags.get_all_tags() %}
+      {% set tags = dbt_tags.get_dbt_tags() %}
       {% endraw %}
       ```
 

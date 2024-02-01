@@ -1,4 +1,4 @@
-{% macro get_all_tags(debug=False) %}
+{% macro get_dbt_tags(debug=False) %}
 
   {% set resource_types = var('dbt_tags__resource_types') %}
   {% set found_tags = [] %}

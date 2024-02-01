@@ -4,7 +4,7 @@
     {{ return("") }}
   {% endif %}
 
-  {% set tag_ns = dbt_tags.get_tags_ns() %}
+  {% set tag_ns = dbt_tags.get_resource_ns() %}
   {% set query %}
 
     {% for key, value in model.columns.items() -%}
