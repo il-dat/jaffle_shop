@@ -1,4 +1,4 @@
-{% macro get_relation_tags(relation, inc_column=True, debug=False) %}
+{% macro get_dbt_relation_tags(relation, inc_column=True, debug=False) %}
 
   {% set found_tags = [] %}
   {{ log(relation.resource_type ~ "-" ~ relation.name ~ "-tags:" ~ relation.tags, info=True) if debug}}
@@ -11,7 +11,7 @@
   {% endif %}
 
   {% if inc_column %}
-    {% do found_tags.extend(dbt_tags.get_column_tags(relation=relation, debug=debug)) %}
+    {% do found_tags.extend(dbt_tags.get_dbt_column_tags(relation=relation, debug=debug)) %}
   {% endif %}
 
   {{ return(found_tags) }}

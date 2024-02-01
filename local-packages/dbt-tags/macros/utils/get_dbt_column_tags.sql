@@ -1,4 +1,4 @@
-{% macro get_column_tags(relation, debug=False) %}
+{% macro get_dbt_column_tags(relation, debug=False) %}
 
   {% set found_tags = [] %}
   {% for key, value in relation.columns.items() %}
