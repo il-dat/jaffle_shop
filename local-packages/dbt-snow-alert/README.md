@@ -48,12 +48,12 @@ dbt run-operation snow_alert__create_or_get_resource --args '{create: true}'
 ```sql
 use role accountadmin;
 
-create or replace notification integration ni__sb_il__dbt__alerts_prod
+create or replace notification integration <YOUR NOTIFICATION INTEGRATION NAME>
   type = email
   enabled = true
   allowed_recipients = ('<hidden>@<hidden>.slack.com')
   comment = "PROD Notification Integration object used for <hidden> dbt project";
-grant usage on integration ni__sb_il__dbt__alerts_prod to role role_transform_prod;
+grant usage on integration <YOUR NOTIFICATION INTEGRATION NAME> to role role_transform_prod;
 ```
 
 ## 3. Decide to configure the alerts
