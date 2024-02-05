@@ -1,0 +1,14 @@
+version: 2
+
+macros:
+  - name: snow_alert__create_or_get_resource
+    description: |
+      Generate the managed SQL script for the Snowflake Notification Integration object.
+
+      Returns the object name if called by others by default.
+
+  - name: snow_alert__run
+    description: |
+      Generate SQL script to execute a single alert query, collect failed count, and alert an email if failed count > 0.
+
+      Behind the scenes, it calls `system$send_email` function.
