@@ -22,10 +22,19 @@
             '{{ emails }}',
             '{{ title or "❄️ Snowflake Alert!"}} [' || :failed_count || '] | {{ utcnow }} (UTC)',
             '
-              <p>The most recent job run details can be found at <a href="https://YOUR_ACCESS_URL/deploy/{{ env_var('DBT_CLOUD_ACCOUNT_ID', 'manual') }}/projects/{{ env_var('DBT_CLOUD_PROJECT_ID', 'manual') }}/runs/{{ env_var('DBT_CLOUD_RUN_ID', 'manual') }}" >runs/{{ env_var('DBT_CLOUD_RUN_ID', 'manual') }}</a></p>
+              <p>The most recent job run details can be found at 
+              <a 
+                href="https://YOUR_ACCESS_URL/deploy/{{ env_var('DBT_CLOUD_ACCOUNT_ID', 'manual') }}
+                /projects/{{ env_var('DBT_CLOUD_PROJECT_ID', 'manual') }}
+                /runs/{{ env_var('DBT_CLOUD_RUN_ID', 'manual') }}" >
+              
+                Job Run [{{ env_var('DBT_CLOUD_RUN_ID', 'manual') }}]
+
+              </a>
+              </p>
               <p>
                 <details>
-                  <summary>▶️ Check query used as follows:</summary>
+                  <summary>Check query used as follows:</summary>
                   <pre><code> {{ query }} </code></pre>
                 </details>
               </p>
