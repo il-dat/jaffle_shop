@@ -1,4 +1,8 @@
 {% macro create_or_get_resource(create=false, assign_to_role=none) -%}
+  {{ return(adapter.dispatch('create_or_get_resource')(create=create, assign_to_role=assign_to_role)) }}
+{%- endmacro %}
+
+{% macro default__create_or_get_resource(create=false, assign_to_role=none) -%}
 
   {% set integration_name = "ni_snow_alert_" ~ project_name ~ "_" ~ target.name %}
   {% set assign_to_role = assign_to_role or ("role_transform_" ~ target.name) %}

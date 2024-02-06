@@ -1,4 +1,8 @@
-{% macro send_alert(
+{% macro send_alert(query, title=none, body=none, mailing_list=none) -%}
+  {{ return(adapter.dispatch('send_alert')(query=query, title=title, body=body, mailing_list=mailing_list)) }}
+{%- endmacro %}
+
+{% macro default__send_alert(
   query,
   title=none,
   body=none,
