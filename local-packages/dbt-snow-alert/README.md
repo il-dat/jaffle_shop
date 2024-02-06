@@ -11,7 +11,7 @@ Managing the native Snowflake [Notification](https://docs.snowflake.com/en/user-
 
 ### 1. Create your job macro
 
-Take a look at our sample at `jobs/snow_alert_job__sample_1.sql`. Note: the macro name MUST start with `snow_alert_job__` ❗
+Take a look at our sample at [`sample-jobs/snow_alert_job__sample_1.sql`](./macros/sample-jobs/snow_alert_job__sample_1.sql). Note: the macro name MUST start with `snow_alert_job__` ❗
 
 Your job name is `sample_1` in this case.
 
