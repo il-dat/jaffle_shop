@@ -20,7 +20,7 @@
   
   {% set query -%}
     
-    {{ snow_alert.send_alert(
+    {{ snow_alert__run(
         query=alert_query,
         title="⚠️ Data Freshness Alert - <short rule>"
     ) }}

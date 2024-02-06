@@ -1,10 +1,12 @@
 {% macro snow_alert__run(
   query,
   title=none,
-  emails=env_var("DBT_CLOUD_ALERT_EMAILS", "<hidden>@<hidden>.slack.com")
+  body=none,
+  mailing_list=none
 ) -%}
 
   {% set utcnow = modules.datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S") %}
+  {% set mailing_list = mailing_list or snow_alert.get_mailing_list() %}
   {% set query -%}
 
     execute immediate
@@ -18,15 +20,15 @@
       case
         when failed_count > 0 then
           call system$send_email(
-            '{{ snow_alert__create_or_get_resource() }}',
-            '{{ emails }}',
+            '{{ snow_alert.create_or_get_resource() }}',
+            '{{ mailing_list }}',
             '{{ title or "❄️ Snowflake Alert!"}} [' || :failed_count || '] | {{ utcnow }} (UTC)',
-            '
+            '{{ body or "
               <p>The most recent job run details can be found at 
               <a 
-                href="https://YOUR_ACCESS_URL/deploy/{{ env_var('DBT_CLOUD_ACCOUNT_ID', 'manual') }}
+                href=\"https://{{ var('snow_alert__dbt_cloud_access_url') }}/deploy/{{ env_var('DBT_CLOUD_ACCOUNT_ID', 'manual') }}
                 /projects/{{ env_var('DBT_CLOUD_PROJECT_ID', 'manual') }}
-                /runs/{{ env_var('DBT_CLOUD_RUN_ID', 'manual') }}" >
+                /runs/{{ env_var('DBT_CLOUD_RUN_ID', 'manual') }}\" >
               
                 Job Run [{{ env_var('DBT_CLOUD_RUN_ID', 'manual') }}]
 
@@ -38,7 +40,7 @@
                   <pre><code> {{ query }} </code></pre>
                 </details>
               </p>
-            ',
+            "}}',
             'text/html'
           );
           return 'Alert is in queue 🕥';
