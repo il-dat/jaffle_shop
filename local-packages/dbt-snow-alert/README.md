@@ -35,6 +35,14 @@ dbt run-operation execute_jobs --vars '{snow_alert__jobs: sample_1}'
 # or: dbt run-operation execute_jobs --vars '{snow_alert__jobs: sample_1}' --args '{dry_run: true}'
 ```
 
+```log
+07:39:22  Running with dbt=1.7.6
+07:39:23  Registered adapter: snowflake=1.7.1
+07:39:23  Found 5 models, 3 seeds, 21 tests, 2 sources, 1 exposure, 0 metrics, 568 macros, 0 groups, 0 semantic models
+07:39:23  [RUN]: snow_alert_job__sample_1"
+07:39:24  Alert is in queue 🕥
+```
+
 ## Production Readiness
 
 ## 1. Create a Snowflake User and get the email address verified
