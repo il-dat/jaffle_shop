@@ -1,4 +1,5 @@
 name: 'snow_alert'
 vars:
-  snow_alert__dbt_cloud_access_url: "cloud.getdbt.com"  # Mandatory (if using dbt cloud), the ACCESS URL - see https://docs.getdbt.com/docs/cloud/about-cloud/access-regions-ip-addresses
-  snow_alert__mailing_list: "dat@infinitelambda.com"    # Mandatory (if DBT_CLOUD_MAILING_LIST not specified), mailing list for the Alert, it will take precedence to DBT_CLOUD_MAILING_LIST env var
+  snow_alert__dbt_cloud_access_url: cloud.getdbt.com  # Mandatory (if using dbt cloud), the ACCESS URL - see https://docs.getdbt.com/docs/cloud/about-cloud/access-regions-ip-addresses
+  snow_alert__mailing_list: dat@infinitelambda.com    # Mandatory (if DBT_CLOUD_MAILING_LIST not specified), mailing list for the Alert split by comma, it will take precedence to DBT_CLOUD_MAILING_LIST env var
+  snow_alert__jobs: sample_1                          # Mandatory, specify the job names split by comma to run

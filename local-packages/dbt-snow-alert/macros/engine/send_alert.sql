@@ -1,4 +1,4 @@
-{% macro snow_alert__run(
+{% macro send_alert(
   query,
   title=none,
   body=none,
@@ -23,14 +23,15 @@
             '{{ snow_alert.create_or_get_resource() }}',
             '{{ mailing_list }}',
             '{{ title or "❄️ Snowflake Alert!"}} [' || :failed_count || '] | {{ utcnow }} (UTC)',
-            '{{ body or "
+            '{{ body or 
+            ("
               <p>The most recent job run details can be found at 
               <a 
-                href=\"https://{{ var('snow_alert__dbt_cloud_access_url') }}/deploy/{{ env_var('DBT_CLOUD_ACCOUNT_ID', 'manual') }}
-                /projects/{{ env_var('DBT_CLOUD_PROJECT_ID', 'manual') }}
-                /runs/{{ env_var('DBT_CLOUD_RUN_ID', 'manual') }}\" >
+                href=\"https://" ~ var("snow_alert__dbt_cloud_access_url") ~ "/deploy/" ~ env_var("DBT_CLOUD_ACCOUNT_ID", "manual") ~ "
+                /projects/" ~ env_var("DBT_CLOUD_PROJECT_ID", "manual") ~ "
+                /runs/" ~ env_var("DBT_CLOUD_RUN_ID", "manual") ~ "\" >
               
-                Job Run [{{ env_var('DBT_CLOUD_RUN_ID', 'manual') }}]
+                Job Run [" ~ env_var("DBT_CLOUD_RUN_ID", "manual") ~ "]
 
               </a>
               </p>
@@ -40,7 +41,7 @@
                   <pre><code> {{ query }} </code></pre>
                 </details>
               </p>
-            "}}',
+            ")}}',
             'text/html'
           );
           return 'Alert is in queue 🕥';

@@ -1,5 +1,6 @@
 packages:
 - local: local-packages/dbt-tags
+- local: local-packages/dbt-snow-alert
 - package: dbt-labs/dbt_utils
   version: 1.1.1
-sha1_hash: f72c9eac9ca2265fc6c1bc5ba82878d51684ff43
+sha1_hash: 765aaedf91c7dee625e9915cca0a2f87112656fb

@@ -1,13 +1,4 @@
-version: 2
-
 macros:
-  - name: send_alert
-    description: |
-      Main function of the alert.
-      
-      Generate SQL script and execute a the alert query, collect failed count, and alert an email if failed count > 0.
-
-      Behind the scenes, it calls `system$send_email` function within the `execute immediate` statement.
   - name: create_or_get_resource
     description: |
       Generate the managed SQL script for the Snowflake Notification Integration object.
@@ -32,6 +23,3 @@ macros:
       {% set ni_name = snow_alert.create_or_get_resource() %}
       {% endraw %}
       ```
-  - name: get_mailing_list
-    description: |
-      Return the mailing list splitted by comma from `snow_alert__mailing_list` variable, or `DBT_CLOUD_MAILING_LIST` environment variable

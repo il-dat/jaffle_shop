@@ -1,0 +1,8 @@
+macros:
+  - name: send_alert
+    description: |
+      Main function of the alert sending as an email.
+
+      Generate SQL script and execute a the alert query, collect failed count, and alert an email if failed count > 0.
+
+      Behind the scenes, it calls `system$send_email` function within the `execute immediate` statement.

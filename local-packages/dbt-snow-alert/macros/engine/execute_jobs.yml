@@ -1,0 +1,14 @@
+macros:
+  - name: execute_jobs
+    description: |
+      Execute all given jobs passing through `snow_alert__jobs` variable.
+
+      Steps:
+      1. Create your job macro e.g. jobs/snow_alert_job__sample_1.sql. Its name MUST start with `snow_alert_job__`.
+      2. Get your job name e.g. sample_1 - let's remove the prefix `snow_alert_job__`
+      3. Decide the execute the job:
+      ```bash
+      dbt run-operation execute_jobs --vars '{snow_alert__jobs: sample_1}'
+      # or a dry run
+      dbt run-operation execute_jobs --vars '{snow_alert__jobs: sample_1}' --args '{dry_run: true}'
+      ```
