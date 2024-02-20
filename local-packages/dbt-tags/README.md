@@ -42,7 +42,7 @@ All dbt tags are allowed by default. If needed, let's define your list of tags w
 Then, go create the Snowflake tags:
 
 ```bash
-dbt run-opertion create_tags
+dbt run-operation create_tags
 ```
 
 <details>
