@@ -1,0 +1,15 @@
+unit_tests:
+  - name: test_is_valid_customer_name
+    description: test_is_valid_customer_name
+    model: dim_customers
+    given:
+      - input: ref('stg_customers')
+        rows:
+          - {customer_id: 1, first_name: "Dat", last_name: "Dat"}
+          - {customer_id: 2, first_name: "Dat1", last_name: "Dat2"}
+          - {customer_id: 3, first_name: "Dat1", last_name: "Dat3"}
+    expect:
+      rows:
+        - {customer_id: 1, is_valid_customer_name: false}
+        - {customer_id: 1, is_valid_customer_name: true}
+        - {customer_id: 1, is_valid_customer_name: true}
