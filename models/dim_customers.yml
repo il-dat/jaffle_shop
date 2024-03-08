@@ -11,5 +11,5 @@ unit_tests:
     expect:
       rows:
         - {customer_id: 1, is_valid_customer_name: false}
-        - {customer_id: 1, is_valid_customer_name: true}
-        - {customer_id: 1, is_valid_customer_name: true}
+        - {customer_id: 2, is_valid_customer_name: true}
+        - {customer_id: 3, is_valid_customer_name: true}
